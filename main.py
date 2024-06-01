@@ -1,46 +1,40 @@
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 import requests
+
+from mynyla import mynyla_window
+
 app = QApplication([])
 
 window = QWidget()
-window.resize(200, 100)
+window.resize(900, 500)
 
+mayb= QPushButton("Отримати прогноз майбутьньоЇ погоди:)")
+myn = QPushButton("Отримати прогноз минулоЇ погоди:)")
 otrym = QPushButton("Отримати прогноз погоди:)")
-city = QLineEdit("")
-data = QLineEdit("")
-time = QLineEdit("")
-rezyltat = QLineEdit("")
+nyn = QPushButton("Отримати прогноз погоди на нині:)")
 
-main_line = QVBoxLayout()
-
-h1 = QHBoxLayout()
-h2 = QHBoxLayout()
-h3 = QHBoxLayout()
-h4 = QHBoxLayout()
-h5 = QHBoxLayout()
+JA = QLabel()
+JA_img = QPixmap("tebErmH1.webp")
+JA_img = JA_img.scaledToWidth(760)
+JA.setPixmap(JA_img)
 
 
-h1.addWidget(city)
-h2.addWidget(data)
-h3.addWidget(time)
-h4.addWidget(otrym)
-h5.addWidget(rezyltat)
+main_line = QHBoxLayout()
+
+h1 = QVBoxLayout()
+h2 = QVBoxLayout()
+
+
+h1.addWidget(myn)
+h1.addWidget(mayb)
+h1.addWidget(nyn)
+
+h2.addWidget(JA)
+
 
 main_line.addLayout(h1)
 main_line.addLayout(h2)
-main_line.addLayout(h3)
-main_line.addLayout(h4)
-main_line.addLayout(h5)
-
-def dd():
-    citye = city.text()
-    date = data.text()
-    url1 = f"https://api.openweathermap.org/data/2.5/weather?q={citye}&appid=bd97a2f8ede4aaad49878a1c3eb7e3c3"
-    r = requests.get(url1)
-    if r.status_code == 200:
-        res = r.json()
-        rezyltat.setText(str(res))
 
 
 
@@ -49,7 +43,11 @@ def dd():
 
 
 
-otrym.clicked.connect(dd)
+
+
+
+
+myn.clicked.connect(mynyla_window)
 window.setLayout(main_line)
 window.show()
 app.exec()
