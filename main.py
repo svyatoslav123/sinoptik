@@ -3,6 +3,7 @@ from PyQt6.QtGui import *
 import requests
 
 from mynyla import mynyla_window
+from nuni import nuni_window
 
 app = QApplication([])
 
@@ -46,7 +47,7 @@ main_line.addLayout(h2)
 
 
 
-
+nyn.clicked.connect(nuni_window)
 myn.clicked.connect(mynyla_window)
 window.setLayout(main_line)
 window.show()

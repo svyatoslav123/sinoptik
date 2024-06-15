@@ -33,7 +33,7 @@ def mynyla_window():
      def dd():
           citye = city.text()
           date = data.text()
-          url1 = f"https://api.openweathermap.org/data/2.5/weather?q={citye}&appid=bd97a2f8ede4aaad49878a1c3eb7e3c3"
+          url1 = f"https://pro.openweathermap.org/data/2.5/forecast/hourly?q={citye}&appid=bd97a2f8ede4aaad49878a1c3eb7e3c3"
           r = requests.get(url1)
           if r.status_code == 200:
                res = r.json()
