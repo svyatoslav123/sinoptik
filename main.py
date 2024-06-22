@@ -10,8 +10,8 @@ app = QApplication([])
 window = QWidget()
 window.resize(900, 500)
 
-mayb= QPushButton("Отримати прогноз майбутьньоЇ погоди:)")
-myn = QPushButton("Отримати прогноз минулоЇ погоди:)")
+mayb= QPushButton("Отримати прогноз на післязавтра:)")
+myn = QPushButton("Отримати прогноз на завтра:)")
 otrym = QPushButton("Отримати прогноз погоди:)")
 nyn = QPushButton("Отримати прогноз погоди на нині:)")
 

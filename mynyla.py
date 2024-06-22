@@ -7,10 +7,12 @@ def mynyla_window():
      data = QLineEdit("")
      time = QLineEdit("")
      rezyltat = QLineEdit("")
+     rezyltat4= QLineEdit("")
      city1 = QLabel("місто:")
-     data1 = QLabel("дата:")
-     time1 = QLabel("година:")
-     rezyltat1 = QLabel("результат:")
+     data1 = QLabel("мінімальна температура:")
+     time1 = QLabel("максимальна температура:")
+     rezyltat1 = QLabel("опис:")
+     rezyltat2 = QLabel("точна дата:")
      otrym = QPushButton("Отримати прогноз погоди:)")
      main_line = QHBoxLayout()
 
@@ -25,6 +27,8 @@ def mynyla_window():
      h2.addWidget(time)
      h1.addWidget(rezyltat1)
      h2.addWidget(rezyltat)
+     h1.addWidget(rezyltat2)
+     h2.addWidget(rezyltat4)
      h1.addWidget(otrym)
 
      main_line.addLayout(h1)
@@ -32,12 +36,22 @@ def mynyla_window():
 
      def dd():
           citye = city.text()
-          date = data.text()
-          url1 = f"https://pro.openweathermap.org/data/2.5/forecast/hourly?q={citye}&appid=bd97a2f8ede4aaad49878a1c3eb7e3c3"
+
+          url1 = f"https://api.openweathermap.org/data/2.5/forecast?q={citye}&appid=bd97a2f8ede4aaad49878a1c3eb7e3c3"
           r = requests.get(url1)
           if r.status_code == 200:
                res = r.json()
-               rezyltat.setText(str(res))
+               mint = res["list"][0]["main"]["temp_min"]-273.15
+               maxt = res["list"][0]["main"]["temp"]-273.15
+               des = res["list"][1]["weather"][0]["description"]
+               dt = res["list"][6]["dt_txt"]
+               rezyltat.setText(str(des))
+               rezyltat4.setText(str(dt))
+
+
+               data.setText(str(mint))
+               time.setText(str(maxt))
+
 
      otrym.clicked.connect(dd)
 
