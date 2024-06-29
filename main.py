@@ -9,8 +9,23 @@ app = QApplication([])
 
 window = QWidget()
 window.resize(900, 500)
+app.setStyleSheet("""
+      QWidget {
+          background: #7FC3C8;
+      }
+      QPushButton
+      {
+          background-color: #C0F0FF;
+          min-height: 30px;
+          min-weight: 120px;
+          border-style: groove;
+      }
 
-mayb= QPushButton("Отримати прогноз на післязавтра:)")
+
+
+
+""")
+
 myn = QPushButton("Отримати прогноз на завтра:)")
 otrym = QPushButton("Отримати прогноз погоди:)")
 nyn = QPushButton("Отримати прогноз погоди на нині:)")
@@ -28,7 +43,7 @@ h2 = QVBoxLayout()
 
 
 h1.addWidget(myn)
-h1.addWidget(mayb)
+
 h1.addWidget(nyn)
 
 h2.addWidget(JA)

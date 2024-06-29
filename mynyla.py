@@ -1,7 +1,19 @@
 from PyQt6.QtWidgets import *
 import requests
+
+
+
 def mynyla_window():
      window = QDialog()
+     window.setStyleSheet("""
+           QLineEdit{
+
+           background-color: #D3E5EA;
+
+
+           }
+
+     """)
      window.resize(400, 300)
      city = QLineEdit("")
      data = QLineEdit("")
