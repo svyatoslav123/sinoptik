@@ -5,7 +5,7 @@ def nuni_window():
      window.resize(300, 200)
      city = QLineEdit("")
 
-     opis = QLineEdit("")
+
      city1 = QLabel("місто:")
      temp_min1 = QLabel("мінімальна температура:")
      temp_max1 = QLabel("максимальна температура:")
@@ -15,7 +15,7 @@ def nuni_window():
      temp_min = QLineEdit("")
      temp_max = QLineEdit("")
 
-     opis1 = QLabel("результат:")
+
      otrym = QPushButton("Отримати прогноз погоди:)")
      main_line = QVBoxLayout()
 
@@ -28,8 +28,8 @@ def nuni_window():
 
      h1.addWidget(city)
 
-     h2.addWidget(opis1)
-     h2.addWidget(opis)
+
+
      h3.addWidget(temp_min1)
      h3.addWidget(temp_min)
      h4.addWidget(temp_max1)
@@ -51,7 +51,7 @@ def nuni_window():
 
      def dd():
           citye = city.text()
-          citye.setStyleSheet("""
+          city.setStyleSheet("""
                      QLineEdit{
 
                      background-color: #D3E5EA;
